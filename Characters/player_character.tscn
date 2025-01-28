@@ -298,8 +298,6 @@ height = 44.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_odbef")
-jump_velocity = 150.0
-double_jump_velocity = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-32, -32)
