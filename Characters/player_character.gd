@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 200.0
-@export var jump_velocity : float = -150.0
-@export var double_jump_velocity : float = -100
+@export var speed : float = 200
+@export var jump_velocity : float = 300
+@export var double_jump_velocity : float = 200
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -29,13 +29,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			# Normal jump from floor
-			jump()
-		elif not has_double_jumped:
-			# Double jump in air
-			velocity.y = double_jump_velocity
-			has_double_jumped = true
+		jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -64,10 +58,25 @@ func update_facing_direction():
 		animated_sprite.flip_h = true
 	
 func jump():
-	velocity.y = jump_velocity
-	animated_sprite.play("jump_start")
-	animation_locked = true
+	var up : float
+	var jump
+	if is_on_floor():
+		# Normal jump from floor
+		up = jump_velocity*up_direction.y
+		jump = true
+	elif not has_double_jumped:
+		# Double jump in air
+		up = double_jump_velocity*up_direction.y
+		has_double_jumped = true
+		jump = true
 	
+	if jump:
+		velocity.y = up
+		animated_sprite.stop()
+		animated_sprite.play("jump_start")
+		if has_double_jumped:
+			animated_sprite.play("jump_start") # Second jump animation
+		animation_locked = true
 
 
 func land():
