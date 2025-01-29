@@ -15,10 +15,6 @@ run/main_scene="res://Levels/mechanics_level.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-PlayerCharacter="*res://Characters/player_character.gd"
-
 [display]
 
 window/stretch/scale=4.0
