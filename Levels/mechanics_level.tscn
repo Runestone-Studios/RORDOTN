@@ -503,6 +503,8 @@ tile_set = SubResource("TileSet_k07s3")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_awd3s")]
 position = Vector2(16, 31)
+jump_velocity = 300.0
+double_jump_velocity = 200.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCharacter"]
 remote_path = NodePath("../../Camera2D")
