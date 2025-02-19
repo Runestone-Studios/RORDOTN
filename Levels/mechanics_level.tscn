@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://8b467piqkart"]
+[gd_scene load_steps=6 format=4 uid="uid://8b467piqkart"]
 
 [ext_resource type="Texture2D" uid="uid://dunnvfvja8cmy" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_hvsa8"]
 [ext_resource type="PackedScene" uid="uid://x4nn83t5xq0e" path="res://Characters/player_character.tscn" id="2_awd3s"]
+[ext_resource type="PackedScene" uid="uid://4qwrwtivulkm" path="res://Characters/player.tscn" id="3_cgv7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jvyg8"]
 texture = ExtResource("1_hvsa8")
@@ -502,15 +503,22 @@ tile_map_data = PackedByteArray("AAAAAAQAAAACAAEAAAAAAAUAAAACAAIAAAAAAAYAAAACAAM
 tile_set = SubResource("TileSet_k07s3")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_awd3s")]
+visible = false
 position = Vector2(16, 31)
 jump_velocity = 300.0
 double_jump_velocity = 200.0
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCharacter"]
+[node name="Player" parent="." instance=ExtResource("3_cgv7y")]
+position = Vector2(16, 63)
+scale = Vector2(1.5, 1.5)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -20)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(16, 31)
+position = Vector2(16, 33)
+scale = Vector2(1.5, 1.5)
 offset = Vector2(0, 25)
 zoom = Vector2(0.75, 0.75)
 process_callback = 0
