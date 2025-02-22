@@ -15,6 +15,7 @@ func state_input(event: InputEvent):
 	if event.is_action_pressed("attack"):
 		next_state = attack
 		attack.current_action = "Ducking"
-	
-	if event.is_action_released("down"):
+
+func state_process(delta: float):
+	if player.vdirection <= 0:
 		next_state = idle

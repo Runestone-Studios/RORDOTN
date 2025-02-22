@@ -28,18 +28,19 @@ func state_process(delta: float):
 	
 	if !player.is_on_floor():
 		next_state = fall
+	
+	if abs(player.velocity.x) > 0:
+		next_state = walk
+	
+	if player.vdirection > 0:
+		next_state = duck
 
 func state_input(event: InputEvent):
 	if event.is_action_pressed("jump"):
 		next_state = jump
-	elif event.is_action_pressed("left") || event.is_action_pressed("right"):
-		next_state = walk
-	elif event.is_action_pressed("down"):
-		next_state = duck
 	elif event.is_action_pressed("attack"):
 		next_state = attack
 		attack.current_action = "Standing"
-	
 
 func on_exit():
 	super()

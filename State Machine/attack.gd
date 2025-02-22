@@ -49,12 +49,16 @@ func state_process(delta: float):
 				animator.seek(pos,true)
 				can_move = false
 				jump.double_jump = true
-	
-	if animator.animation_finished:
-		match(current_action):
-			"Standing":
-				next_state = idle
-			"Ducking":
-				next_state = duck
-			"In Air":
-				next_state = fall
+
+func state_input(event: InputEvent):
+	if event.is_action_released("jump") && current_action == "In Air" && player.velocity.y < 0:
+		player.velocity.y = 0
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	match(anim_name):
+		"Attack_Standing":
+			next_state = idle
+		"Attack_Ducking":
+			next_state = duck
+		"Attack_Jumping":
+			next_state = fall

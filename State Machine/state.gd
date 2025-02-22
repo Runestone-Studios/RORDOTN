@@ -3,7 +3,7 @@ class_name State
 
 @export var animation : String
 @export var can_move : bool = true
-@export var can_rotate : bool = true
+@export var can_turn : bool = true
 
 var SM : StateMachine
 var player : Player

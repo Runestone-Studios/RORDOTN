@@ -14,8 +14,6 @@ func state_process(delta: float):
 	if player.is_on_floor():
 		next_state = idle
 		jump.double_jump = true
-	else:
-		player.velocity += player.get_gravity() * delta
 
 func state_input(event: InputEvent):
 	if event.is_action_pressed("jump"):
