@@ -29,7 +29,7 @@ func state_process(delta: float):
 	if !player.is_on_floor():
 		next_state = fall
 	
-	if abs(player.velocity.x) > 0:
+	if abs(player.hdirection) > 0:
 		next_state = walk
 	
 	if player.vdirection > 0:

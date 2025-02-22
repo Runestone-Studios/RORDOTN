@@ -756,6 +756,7 @@ jump = NodePath("../Jump")
 animation = "Walk"
 
 [node name="StateDebug" type="Label" parent="."]
+visible = false
 offset_left = -57.0
 offset_top = -52.0
 offset_right = 58.0
