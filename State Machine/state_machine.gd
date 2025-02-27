@@ -30,12 +30,6 @@ func _process(delta: float) -> void:
 			change_state(current_state.next_state)
 		current_state.state_process(delta)
 	on_ground = player.is_on_floor()
-	
-	if current_state.can_turn:
-		if player.hdirection == 1:
-			player.sprite.flip_h = false
-		elif player.hdirection == -1:
-			player.sprite.flip_h = true
 
 func _input(event: InputEvent):
 	if current_state:

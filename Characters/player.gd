@@ -25,6 +25,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
+	if SM.current_state.can_turn:
+		if hdirection > 0:
+			$PlayerAnimator.scale.x = 1
+		elif hdirection < 0:
+			$PlayerAnimator.scale.x = -1
+	
 	vdirection = Input.get_axis("up", "down")
 
 	move_and_slide()
