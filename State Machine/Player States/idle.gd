@@ -1,6 +1,8 @@
 extends State
 
 @export var idle_timer : float = 3.0
+@export var second_idle : String
+@export var third_idle : String
 
 @export_category("Exit States")
 @export var attack : State
@@ -18,13 +20,13 @@ func on_enter():
 
 func state_process(delta: float):
 	if current_idle < idle_timer:
-		animator.play("Idle_1")
+		animator.play(animation)
 		current_idle += delta
 	elif current_idle < idle_timer+0.125:
-		animator.play("Idle_2")
+		animator.play(second_idle)
 		current_idle += delta
 	else:
-		animator.play("Idle_3")
+		animator.play(third_idle)
 	
 	if !player.is_on_floor():
 		next_state = fall

@@ -1,17 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://4qwrwtivulkm"]
+[gd_scene load_steps=27 format=3 uid="uid://yvchd4hlvm7f"]
 
-[ext_resource type="Script" path="res://Characters/player.gd" id="1_5nv65"]
-[ext_resource type="Texture2D" uid="uid://bptof38wrbi1f" path="res://Art/Sprites/Player.png" id="1_jgsqn"]
-[ext_resource type="Texture2D" uid="uid://bkvjg66o5i26c" path="res://Art/Sprites/Longsword.png" id="3_l54ep"]
-[ext_resource type="Script" path="res://State Machine/Player States/state_machine.gd" id="4_bkken"]
-[ext_resource type="Script" path="res://State Machine/Player States/idle.gd" id="5_jvr5l"]
-[ext_resource type="Script" path="res://State Machine/Player States/walk.gd" id="6_5x674"]
-[ext_resource type="Script" path="res://State Machine/Player States/jump.gd" id="7_y6iib"]
-[ext_resource type="Script" path="res://State Machine/Player States/fall.gd" id="8_oaktf"]
-[ext_resource type="Script" path="res://State Machine/Player States/duck.gd" id="9_1t8k4"]
-[ext_resource type="Script" path="res://State Machine/Player States/attack.gd" id="10_pl5t8"]
-[ext_resource type="Script" path="res://State Machine/Player States/damage.gd" id="11_yfgnx"]
-[ext_resource type="Script" path="res://State Machine/Player States/death.gd" id="12_wpjcx"]
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_fnftq"]
+[ext_resource type="Texture2D" uid="uid://cyo7rk858c24i" path="res://Art/Sprites/Skeleton.png" id="2_u22wq"]
+[ext_resource type="Texture2D" uid="uid://bkvjg66o5i26c" path="res://Art/Sprites/Longsword.png" id="3_lxtvt"]
+[ext_resource type="Script" path="res://State Machine/Enemy States/enemystate_machine.gd" id="4_xjyf8"]
+[ext_resource type="PackedScene" uid="uid://cl4og6hvtnvwa" path="res://State Machine/Enemy States/enemy_attack_state.tscn" id="5_8gtjh"]
+[ext_resource type="PackedScene" uid="uid://cmrg3a31648ha" path="res://State Machine/Enemy States/enemy_damage_state.tscn" id="6_0hrx1"]
+[ext_resource type="PackedScene" uid="uid://dnp6wahirrbtw" path="res://State Machine/Enemy States/enemy_death_state.tscn" id="7_qxbop"]
+[ext_resource type="PackedScene" uid="uid://cink8xd73dlhg" path="res://State Machine/Enemy States/enemy_duck_state.tscn" id="8_ngu3b"]
+[ext_resource type="PackedScene" uid="uid://cof0l34tadoa5" path="res://State Machine/Enemy States/enemy_fall_state.tscn" id="9_5soug"]
+[ext_resource type="PackedScene" uid="uid://6dkq155b5qke" path="res://State Machine/Enemy States/enemy_idle_state.tscn" id="10_gvpgf"]
+[ext_resource type="PackedScene" uid="uid://wp1wxbo485wr" path="res://State Machine/Enemy States/enemy_jump_state.tscn" id="11_ymfa0"]
+[ext_resource type="PackedScene" uid="uid://bb7aeuhusr37a" path="res://State Machine/Enemy States/enemy_walk_state.tscn" id="12_gwm8t"]
 
 [sub_resource type="Animation" id="Animation_ux5hc"]
 resource_name = "Attack_Ducking"
@@ -44,7 +44,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("Animator/Weapon:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -56,7 +56,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -68,7 +68,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("Animator/Weapon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -80,7 +80,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -121,7 +121,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("Animator/Weapon:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -133,7 +133,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -145,7 +145,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("Animator/Weapon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -157,7 +157,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -198,7 +198,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("Animator/Weapon:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -210,7 +210,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -222,7 +222,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("Animator/Weapon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -234,7 +234,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -275,7 +275,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("Animator/Weapon:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -287,7 +287,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -299,7 +299,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("Animator/Weapon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -311,14 +311,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.125),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [18, 19]
+"values": [18]
 }
 
 [sub_resource type="Animation" id="Animation_qg8ss"]
@@ -352,7 +352,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("Animator/Weapon:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -364,7 +364,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -376,7 +376,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("Animator/Weapon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -388,14 +388,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [20]
+"values": [19]
 }
 
 [sub_resource type="Animation" id="Animation_prn7o"]
@@ -428,7 +428,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("Animator/Weapon:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -440,7 +440,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -452,7 +452,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("Animator/Weapon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -464,14 +464,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.375),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [21, 22]
+"values": [21]
 }
 
 [sub_resource type="Animation" id="Animation_nh7up"]
@@ -505,7 +505,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("Animator/Weapon:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -517,7 +517,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -529,7 +529,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("Animator/Weapon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -541,7 +541,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -582,7 +582,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("Animator/Weapon:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -594,7 +594,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -606,7 +606,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/4/path = NodePath("Animator/Weapon:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -618,316 +618,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-
-[sub_resource type="Animation" id="Animation_wts2q"]
-resource_name = "Idle_1"
-length = 0.125
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, -15)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:shape:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [30.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(9, -22)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_hwtjj"]
-resource_name = "Idle_2"
-length = 0.125
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, -15)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:shape:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [30.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:z_index")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-4, -15)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [24]
-}
-
-[sub_resource type="Animation" id="Animation_y2jwc"]
-resource_name = "Idle_3"
-length = 0.125
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, -15)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:shape:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [30.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-7, -13)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [25]
-}
-
-[sub_resource type="Animation" id="Animation_df3kr"]
-resource_name = "Jump"
-length = 0.125
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, -15)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:shape:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [30.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(9, -24)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -937,75 +628,164 @@ tracks/5/keys = {
 "values": [6]
 }
 
-[sub_resource type="Animation" id="Animation_10dh4"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_df3kr"]
+resource_name = "Jump"
+length = 0.125
+step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/path = NodePath("Animator/Sprite:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(0, -15)]
+"values": [Rect2(0, 96, 48, 48)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:shape:height")
+tracks/1/path = NodePath("CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [30.0]
+"values": [Vector2(0, -15)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("CollisionShape2D:shape:height")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [30.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/3/path = NodePath("Animator/Weapon:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-1]
+"values": [0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/4/path = NodePath("Animator/Weapon:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(9, -22)]
+"values": [Vector2(9, -24)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Weapon:z_index")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="Animation" id="Animation_10dh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animator/Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 0, 48, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animator/Weapon:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Animator/Weapon:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Animator/Weapon:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(9, -22)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Animator/Sprite:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1044,7 +824,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("Animator/Weapon:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1056,7 +836,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("Animator/Weapon:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1068,7 +848,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/4/path = NodePath("Animator/Weapon:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1080,7 +860,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerAnimator/Player:frame")
+tracks/5/path = NodePath("Animator/Sprite:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1088,6 +868,83 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_wts2q"]
+resource_name = "Idle"
+length = 0.125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animator/Weapon:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animator/Weapon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(9, -22)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Animator/Weapon:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Animator/Sprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6160"]
@@ -1100,9 +957,7 @@ _data = {
 "Death": SubResource("Animation_prn7o"),
 "Duck": SubResource("Animation_nh7up"),
 "Fall": SubResource("Animation_xnqhk"),
-"Idle_1": SubResource("Animation_wts2q"),
-"Idle_2": SubResource("Animation_hwtjj"),
-"Idle_3": SubResource("Animation_y2jwc"),
+"Idle": SubResource("Animation_wts2q"),
 "Jump": SubResource("Animation_df3kr"),
 "RESET": SubResource("Animation_10dh4"),
 "Walk": SubResource("Animation_e2s35")
@@ -1111,31 +966,33 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cx32i"]
 radius = 8.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "SM")]
-script = ExtResource("1_5nv65")
-sprite = NodePath("PlayerAnimator/Player")
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "animator", "SM")]
+script = ExtResource("1_fnftq")
+sprite = NodePath("Animator/Sprite")
+animator = NodePath("Animator")
 SM = NodePath("StateMachine")
 
-[node name="PlayerAnimator" type="Node2D" parent="."]
+[node name="Animator" type="Node2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animator"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_t6160")
 }
-autoplay = "Idle_1"
+autoplay = "Idle"
 
-[node name="Player" type="Sprite2D" parent="PlayerAnimator"]
+[node name="Sprite" type="Sprite2D" parent="Animator"]
 position = Vector2(0, -16)
-texture = ExtResource("1_jgsqn")
+texture = ExtResource("2_u22wq")
 hframes = 3
 vframes = 9
-region_rect = Rect2(48, 0, 48, 48)
+region_rect = Rect2(0, 0, 48, 48)
 
-[node name="Weapon" type="Sprite2D" parent="PlayerAnimator"]
+[node name="Weapon" type="Sprite2D" parent="Animator"]
+visible = false
 z_index = -1
 position = Vector2(9, -22)
-texture = ExtResource("3_l54ep")
+texture = ExtResource("3_lxtvt")
 hframes = 3
 vframes = 3
 
@@ -1144,14 +1001,12 @@ visible = false
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_cx32i")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "animator", "current_state")]
-script = ExtResource("4_bkken")
-player = NodePath("..")
-animator = NodePath("../PlayerAnimator/AnimationPlayer")
-current_state = NodePath("Idle")
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("enemy", "animator")]
+script = ExtResource("4_xjyf8")
+enemy = NodePath("..")
+animator = NodePath("../Animator/AnimationPlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("damage", "death", "duck", "fall", "idle", "jump")]
-script = ExtResource("10_pl5t8")
+[node name="Attack" parent="StateMachine" node_paths=PackedStringArray("damage", "death", "duck", "fall", "idle", "jump") instance=ExtResource("5_8gtjh")]
 standing = "Attack_Standing"
 ducking = "Attack_Ducking"
 in_air = "Attack_Jumping"
@@ -1161,72 +1016,20 @@ duck = NodePath("../Duck")
 fall = NodePath("../Fall")
 idle = NodePath("../Idle")
 jump = NodePath("../Jump")
-animation = "Attack_Standing"
-can_move = false
-can_turn = false
 
-[node name="Damage" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle")]
-script = ExtResource("11_yfgnx")
-idle = NodePath("../Idle")
-can_move = false
-can_turn = false
+[node name="Damage" parent="StateMachine" instance=ExtResource("6_0hrx1")]
 
-[node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("12_wpjcx")
-can_move = false
-can_turn = false
+[node name="Death" parent="StateMachine" instance=ExtResource("7_qxbop")]
 
-[node name="Duck" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack", "damage", "death", "fall", "idle", "jump")]
-script = ExtResource("9_1t8k4")
-attack = NodePath("../Attack")
-damage = NodePath("../Damage")
-death = NodePath("../Death")
-fall = NodePath("../Fall")
-idle = NodePath("../Idle")
-jump = NodePath("../Jump")
-animation = "Duck"
-can_move = false
+[node name="Duck" parent="StateMachine" instance=ExtResource("8_ngu3b")]
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack", "damage", "death", "idle", "jump")]
-script = ExtResource("8_oaktf")
-attack = NodePath("../Attack")
-damage = NodePath("../Damage")
-death = NodePath("../Death")
-idle = NodePath("../Idle")
-jump = NodePath("../Jump")
-animation = "Fall"
+[node name="Fall" parent="StateMachine" instance=ExtResource("9_5soug")]
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack", "damage", "death", "duck", "fall", "jump", "walk")]
-script = ExtResource("5_jvr5l")
-second_idle = "Idle_2"
-third_idle = "Idle_3"
-attack = NodePath("../Attack")
-damage = NodePath("../Damage")
-death = NodePath("../Death")
-duck = NodePath("../Duck")
-fall = NodePath("../Fall")
-jump = NodePath("../Jump")
-walk = NodePath("../Walk")
-animation = "Idle_1"
+[node name="Idle" parent="StateMachine" instance=ExtResource("10_gvpgf")]
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack", "damage", "death", "fall")]
-script = ExtResource("7_y6iib")
-attack = NodePath("../Attack")
-damage = NodePath("../Damage")
-death = NodePath("../Death")
-fall = NodePath("../Fall")
-animation = "Jump"
+[node name="Jump" parent="StateMachine" instance=ExtResource("11_ymfa0")]
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack", "damage", "death", "duck", "fall", "idle", "jump")]
-script = ExtResource("6_5x674")
-attack = NodePath("../Attack")
-damage = NodePath("../Damage")
-death = NodePath("../Death")
-duck = NodePath("../Duck")
-fall = NodePath("../Fall")
-idle = NodePath("../Idle")
-jump = NodePath("../Jump")
-animation = "Walk"
+[node name="Walk" parent="StateMachine" instance=ExtResource("12_gwm8t")]
 
 [node name="StateDebug" type="Label" parent="."]
 visible = false
@@ -1238,5 +1041,3 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
 text = "State: "
 horizontal_alignment = 1
-
-[connection signal="animation_finished" from="PlayerAnimator/AnimationPlayer" to="StateMachine/Attack" method="_on_animation_player_animation_finished"]

@@ -1,21 +1,21 @@
 extends Node
-class_name StateMachine
+class_name EnemyStateMachine
 
-@export var player : Player
+@export var enemy : Enemy
 @export var animator : AnimationPlayer
-@export var current_state : State
+@export var current_state : EnemyState
 
-var states : Array[State]
+var states : Array[EnemyState]
 var on_ground : bool
 var ducking : bool
 
 func _ready() -> void:
 	for child in get_children():
-		if child is State:
+		if child is EnemyState:
 			states.append(child)
 			
 			child.SM = self
-			child.player = player
+			child.enemy = enemy
 			child.animator = animator
 			
 		else:
@@ -29,13 +29,9 @@ func _process(delta: float) -> void:
 		if current_state.next_state:
 			change_state(current_state.next_state)
 		current_state.state_process(delta)
-	on_ground = player.is_on_floor()
+	on_ground = enemy.is_on_floor()
 
-func _input(event: InputEvent):
-	if current_state:
-		current_state.state_input(event)
-
-func change_state(new_state: State):
+func change_state(new_state: EnemyState):
 	if current_state:
 		await current_state.on_exit()
 		current_state.next_state = null

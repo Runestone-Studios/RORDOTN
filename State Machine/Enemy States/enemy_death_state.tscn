@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnp6wahirrbtw"]
+
+[ext_resource type="Script" path="res://State Machine/Enemy States/death.gd" id="1_josi1"]
+
+[node name="Death" type="Node"]
+script = ExtResource("1_josi1")

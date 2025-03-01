@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb7aeuhusr37a"]
+
+[ext_resource type="Script" path="res://State Machine/Enemy States/walk.gd" id="1_fclu0"]
+
+[node name="Walk" type="Node"]
+script = ExtResource("1_fclu0")
