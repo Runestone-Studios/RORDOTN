@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cink8xd73dlhg"]
 
-[ext_resource type="Script" path="res://State Machine/Enemy States/duck.gd" id="1_fwjn3"]
+[ext_resource type="Script" uid="uid://b1n5gjdr6fnum" path="res://State Machine/Enemy States/duck.gd" id="1_fwjn3"]
 
 [node name="Duck" type="Node"]
 script = ExtResource("1_fwjn3")

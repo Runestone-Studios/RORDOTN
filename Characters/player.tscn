@@ -1,17 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://4qwrwtivulkm"]
+[gd_scene load_steps=30 format=3 uid="uid://4qwrwtivulkm"]
 
-[ext_resource type="Script" path="res://Characters/player.gd" id="1_5nv65"]
+[ext_resource type="Script" uid="uid://dctc8u2vju2fg" path="res://Characters/player.gd" id="1_5nv65"]
 [ext_resource type="Texture2D" uid="uid://bptof38wrbi1f" path="res://Art/Sprites/Player.png" id="1_jgsqn"]
 [ext_resource type="Texture2D" uid="uid://bkvjg66o5i26c" path="res://Art/Sprites/Longsword.png" id="3_l54ep"]
-[ext_resource type="Script" path="res://State Machine/Player States/state_machine.gd" id="4_bkken"]
-[ext_resource type="Script" path="res://State Machine/Player States/idle.gd" id="5_jvr5l"]
-[ext_resource type="Script" path="res://State Machine/Player States/walk.gd" id="6_5x674"]
-[ext_resource type="Script" path="res://State Machine/Player States/jump.gd" id="7_y6iib"]
-[ext_resource type="Script" path="res://State Machine/Player States/fall.gd" id="8_oaktf"]
-[ext_resource type="Script" path="res://State Machine/Player States/duck.gd" id="9_1t8k4"]
-[ext_resource type="Script" path="res://State Machine/Player States/attack.gd" id="10_pl5t8"]
-[ext_resource type="Script" path="res://State Machine/Player States/damage.gd" id="11_yfgnx"]
-[ext_resource type="Script" path="res://State Machine/Player States/death.gd" id="12_wpjcx"]
+[ext_resource type="Script" uid="uid://b6v6qsgsuosc3" path="res://State Machine/Player States/state_machine.gd" id="4_bkken"]
+[ext_resource type="Script" uid="uid://365v5j234xvy" path="res://State Machine/Player States/idle.gd" id="5_jvr5l"]
+[ext_resource type="Script" uid="uid://dn0wrqqpkqqvf" path="res://State Machine/Player States/walk.gd" id="6_5x674"]
+[ext_resource type="Script" uid="uid://c5kxjb0aoj6w3" path="res://State Machine/Player States/jump.gd" id="7_y6iib"]
+[ext_resource type="Script" uid="uid://cxpgps48ahnju" path="res://State Machine/Player States/fall.gd" id="8_oaktf"]
+[ext_resource type="Script" uid="uid://dkme57xv5l3ro" path="res://State Machine/Player States/duck.gd" id="9_1t8k4"]
+[ext_resource type="Script" uid="uid://cu2c7xphtlj7q" path="res://State Machine/Player States/attack.gd" id="10_pl5t8"]
+[ext_resource type="Script" uid="uid://w80kffhkoogr" path="res://State Machine/Player States/damage.gd" id="11_yfgnx"]
+[ext_resource type="Script" uid="uid://dhxap3dfab04l" path="res://State Machine/Player States/death.gd" id="12_wpjcx"]
 
 [sub_resource type="Animation" id="Animation_ux5hc"]
 resource_name = "Attack_Ducking"
@@ -44,7 +44,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -56,7 +56,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -68,7 +68,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -88,6 +88,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [12, 13, 14]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, -12)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.25, 0.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_518vf"]
@@ -121,7 +145,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -133,7 +157,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -145,7 +169,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -165,6 +189,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [15, 16, 17]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, -22)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.25, 0.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_86gnx"]
@@ -198,7 +246,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -210,7 +258,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -222,7 +270,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -242,6 +290,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [9, 10, 11]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.25, 0.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, -20)]
 }
 
 [sub_resource type="Animation" id="Animation_3hxxu"]
@@ -275,7 +347,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -287,7 +359,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -299,7 +371,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -352,7 +424,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -364,7 +436,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -376,7 +448,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -428,7 +500,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -440,7 +512,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -452,7 +524,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -505,7 +577,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -517,7 +589,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -529,7 +601,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -582,7 +654,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -594,7 +666,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -606,7 +678,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -659,7 +731,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -671,7 +743,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -683,7 +755,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -736,7 +808,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -748,7 +820,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -760,7 +832,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -814,7 +886,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -826,7 +898,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -838,7 +910,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -891,7 +963,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -903,7 +975,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -915,7 +987,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -966,7 +1038,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -978,7 +1050,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -990,7 +1062,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1010,6 +1082,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerAnimator/WeaponNodes/DamageArea/DamageCollision:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, -20)]
 }
 
 [sub_resource type="Animation" id="Animation_e2s35"]
@@ -1044,7 +1140,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnimator/Weapon:frame")
+tracks/2/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1056,7 +1152,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnimator/Weapon:position")
+tracks/3/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1068,7 +1164,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerAnimator/Weapon:z_index")
+tracks/4/path = NodePath("PlayerAnimator/WeaponNodes/WeaponSprite:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1092,21 +1188,24 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6160"]
 _data = {
-"Attack_Ducking": SubResource("Animation_ux5hc"),
-"Attack_Jumping": SubResource("Animation_518vf"),
-"Attack_Standing": SubResource("Animation_86gnx"),
-"Damage": SubResource("Animation_3hxxu"),
-"Damage_Land": SubResource("Animation_qg8ss"),
-"Death": SubResource("Animation_prn7o"),
-"Duck": SubResource("Animation_nh7up"),
-"Fall": SubResource("Animation_xnqhk"),
-"Idle_1": SubResource("Animation_wts2q"),
-"Idle_2": SubResource("Animation_hwtjj"),
-"Idle_3": SubResource("Animation_y2jwc"),
-"Jump": SubResource("Animation_df3kr"),
-"RESET": SubResource("Animation_10dh4"),
-"Walk": SubResource("Animation_e2s35")
+&"Attack_Ducking": SubResource("Animation_ux5hc"),
+&"Attack_Jumping": SubResource("Animation_518vf"),
+&"Attack_Standing": SubResource("Animation_86gnx"),
+&"Damage": SubResource("Animation_3hxxu"),
+&"Damage_Land": SubResource("Animation_qg8ss"),
+&"Death": SubResource("Animation_prn7o"),
+&"Duck": SubResource("Animation_nh7up"),
+&"Fall": SubResource("Animation_xnqhk"),
+&"Idle_1": SubResource("Animation_wts2q"),
+&"Idle_2": SubResource("Animation_hwtjj"),
+&"Idle_3": SubResource("Animation_y2jwc"),
+&"Jump": SubResource("Animation_df3kr"),
+&"RESET": SubResource("Animation_10dh4"),
+&"Walk": SubResource("Animation_e2s35")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74t7k"]
+size = Vector2(28, 4)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cx32i"]
 radius = 8.0
@@ -1132,15 +1231,24 @@ hframes = 3
 vframes = 9
 region_rect = Rect2(48, 0, 48, 48)
 
-[node name="Weapon" type="Sprite2D" parent="PlayerAnimator"]
+[node name="WeaponNodes" type="Node2D" parent="PlayerAnimator"]
+
+[node name="WeaponSprite" type="Sprite2D" parent="PlayerAnimator/WeaponNodes"]
 z_index = -1
 position = Vector2(9, -22)
 texture = ExtResource("3_l54ep")
 hframes = 3
 vframes = 3
 
+[node name="DamageArea" type="Area2D" parent="PlayerAnimator/WeaponNodes"]
+
+[node name="DamageCollision" type="CollisionShape2D" parent="PlayerAnimator/WeaponNodes/DamageArea"]
+position = Vector2(34, -20)
+shape = SubResource("RectangleShape2D_74t7k")
+disabled = true
+debug_color = Color(0.997968, 0.0363677, 1.15514e-06, 0.42)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_cx32i")
 

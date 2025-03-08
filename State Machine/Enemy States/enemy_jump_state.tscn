@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wp1wxbo485wr"]
 
-[ext_resource type="Script" path="res://State Machine/Enemy States/jump.gd" id="1_4t52c"]
+[ext_resource type="Script" uid="uid://drrcsy4mtxeyx" path="res://State Machine/Enemy States/jump.gd" id="1_4t52c"]
 
 [node name="Jump" type="Node"]
 script = ExtResource("1_4t52c")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://x4nn83t5xq0e"]
 
 [ext_resource type="Texture2D" uid="uid://dublx5fgn7ff" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_73s0p"]
-[ext_resource type="Script" path="res://Characters/player_character.gd" id="1_odbef"]
+[ext_resource type="Script" uid="uid://brvxa6jel70lr" path="res://Characters/player_character.gd" id="1_odbef"]
 [ext_resource type="Texture2D" uid="uid://s5yr2e2qf6bg" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jump-End/Jump-End-Sheet.png" id="3_qotw8"]
 [ext_resource type="Texture2D" uid="uid://bppjfo54fg2sd" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jump-Start/Jump-Start-Sheet.png" id="4_drpdg"]
 [ext_resource type="Texture2D" uid="uid://cg54nfoo3aq2d" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png" id="5_ehm7k"]

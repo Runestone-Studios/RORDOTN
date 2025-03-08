@@ -1,7 +1,7 @@
 extends Node
 class_name StateMachine
 
-@export var player : Enemy
+@export var player : Player
 @export var animator : AnimationPlayer
 @export var current_state : State
 
